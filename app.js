@@ -39,7 +39,7 @@ function addEvent(){
 }
 function toast(name, title, reminderTime){
     toastText.style.display = 'block'
-    toastText.innerHTML =  `Reminder: ${name}, yourEvent ${title} is in ${reminderTime}`
+    toastText.innerHTML =  `${name}, yourEvent ${title} is in ${reminderTime}`
     setTimeout(() => {
         toastText.style.display = 'none'
     }, 5000)
@@ -64,7 +64,7 @@ function displayUpcomingEvents(){
     users.forEach(user => {
         let userSection = document.createElement('div');
         userSection.className = 'user-section';
-        userSection.innerHTML = `<h3>UpComing Event For <span> ${user.name} </span></h3>`
+        userSection.innerHTML = `<h3>Event For <span> ${user.name} </span></h3>`
         user.events.forEach(event => {
             if(event.dateTime > now && event.dateTime <= oneHourLeter){
                 let eventDev = document.createElement('div');
