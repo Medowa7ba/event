@@ -1,0 +1,80 @@
+body {
+  background-color: color-mix(in srgb, blue 60%, white 30%) !important;
+  margin: 0;
+}
+
+form {
+  background-color: #fff;
+  width: 700px;
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.all-form {
+  height: 100vh;
+}
+
+.event {
+  display: none;
+}
+
+.buttons {
+  display: flex;
+}
+.buttons button {
+  padding: 0 25px;
+  border-radius: 4px;
+  min-width: 140px;
+  height: 50px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  position: relative;
+  overflow: hidden;
+  border: solid 1px color-mix(in srgb, blue 60%, white 30%);
+  cursor: pointer;
+}
+.buttons button:after, .buttons button:before {
+  width: 0%;
+  height: 0%;
+  content: "";
+  position: absolute;
+  border-radius: 100%;
+}
+.buttons button:after {
+  transition: all 0.5s ease;
+  background-color: white;
+}
+.buttons button:before {
+  transition: all 0.5s ease-out;
+  background: color-mix(in srgb, blue 60%, white 30%);
+}
+.buttons button span {
+  z-index: 1;
+  transition: all 0.3s ease-out;
+}
+.buttons button.cta-01 {
+  background-color: color-mix(in srgb, blue 60%, white 30%) !important;
+  color: white;
+}
+.buttons button:hover.cta-01 {
+  color: color-mix(in srgb, blue 60%, white 30%);
+}
+.buttons button:hover.cta-02 {
+  color: white;
+}
+.buttons button:hover:after, .buttons button:hover:before {
+  width: 200px;
+  height: 200px;
+  border-radius: 4px;
+}
+.buttons button:hover:after {
+  transition: all 0.7s ease-in;
+}
+.buttons button:hover:before {
+  transition: all 0.5s ease-in;
+}/*# sourceMappingURL=main.css.map */
