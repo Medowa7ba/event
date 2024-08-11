@@ -77,4 +77,33 @@ form {
 }
 .buttons button:hover:before {
   transition: all 0.5s ease-in;
+}
+
+.toasts {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  color: #000;
+  position: absolute;
+  top: 11px;
+  right: 9px;
+  animation: left 0.4s;
+  display: none;
+}
+
+.user-section h3 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+.user-section h3 span {
+  font-size: 25px;
+}
+
+@keyframes left {
+  to {
+    right: 0px;
+  }
+  from {
+    right: -500px;
+  }
 }/*# sourceMappingURL=main.css.map */

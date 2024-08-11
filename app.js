@@ -1,12 +1,15 @@
-let currentUser = null;
+let AllUsers = null;
 let users = [];
+
+let toastText = document.getElementById('toast');
+
 function User(name, email){
     this.name = name;
     this.email = email;
     this.events = []
     this.addEvent = function(event){
         this.events.push(event);  
-        setupRender(this, event)  
+        Render(this, event)  
     }
     }
 function Event(title, dateTime, reminderTime){
@@ -18,8 +21,8 @@ function create(){
     let name = document.getElementById('exampleInputName').value;
     let email = document.getElementById('exampleInputEmail1').value;
     if(name && email){
-        currentUser = new User(name, email);
-        users.push(currentUser)
+        AllUsers = new User(name, email);
+        users.push(AllUsers)
         document.getElementById('event').style.display = 'block'
         document.getElementById('login').style.display = 'none'
     }
@@ -30,17 +33,25 @@ function addEvent(){
     let reminderTime = document.getElementById('exampleInputReminder').value;
     if(title && dateTime &&reminderTime){
         let newEvent = new Event(title, dateTime, reminderTime);
-        currentUser.addEvent(newEvent);
+        AllUsers.addEvent(newEvent);
         displayUpcomingEvents();
     }
 }
-function setupRender(user, event){
+function toast(name, title, reminderTime){
+    toastText.style.display = 'block'
+    toastText.innerHTML =  `Reminder: ${name}, yourEvent ${title} is in ${reminderTime}`
+    setTimeout(() => {
+        toastText.style.display = 'none'
+    }, 5000)
+}
+function Render(user, event){
 let now = new Date();
 let timeUntilEvent = event.dateTime - now;
 let reminderTime = timeUntilEvent - (event.reminderTime * 60000);
 if(reminderTime > 0){
 setTimeout(() => {
-    alert(`Reminder: ${user.name}, yourEvent ${event.title} is in ${event.reminderTime}`)
+    toastText.style.display = 'block'
+    toast(user.name,event.title,event.reminderTime)
 }, reminderTime)
 }
 }
@@ -53,7 +64,7 @@ function displayUpcomingEvents(){
     users.forEach(user => {
         let userSection = document.createElement('div');
         userSection.className = 'user-section';
-        userSection.innerHTML = `<h3>UpComing Event For ${user.name}:</h3>`
+        userSection.innerHTML = `<h3>UpComing Event For <span> ${user.name} </span></h3>`
         user.events.forEach(event => {
             if(event.dateTime > now && event.dateTime <= oneHourLeter){
                 let eventDev = document.createElement('div');
