@@ -20,7 +20,7 @@ this.reminderTime = reminderTime;
 function create(){
     let name = document.getElementById('exampleInputName').value;
     let email = document.getElementById('exampleInputEmail1').value;
-    if(name && email){
+    if(name && email && email) {
         AllUsers = new User(name, email);
         users.push(AllUsers)
         document.getElementById('event').style.display = 'block'
@@ -76,4 +76,5 @@ function displayUpcomingEvents(){
         output.appendChild(userSection)
     })
 }
+
 setInterval(displayUpcomingEvents , 10000)

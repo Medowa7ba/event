@@ -1,5 +1,7 @@
 body {
-  background-color: color-mix(in srgb, blue 60%, white 30%) !important;
+  background: linear-gradient(300deg, deepskyblue, darkviolet, blue);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
   margin: 0;
 }
 
@@ -35,7 +37,10 @@ form {
   margin: 0 10px;
   position: relative;
   overflow: hidden;
-  border: solid 1px color-mix(in srgb, blue 60%, white 30%);
+  border: solid 1px;
+  background: linear-gradient(300deg, deepskyblue, darkviolet, blue);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
   cursor: pointer;
 }
 .buttons button:after, .buttons button:before {
@@ -51,21 +56,22 @@ form {
 }
 .buttons button:before {
   transition: all 0.5s ease-out;
-  background: color-mix(in srgb, blue 60%, white 30%);
+  background: linear-gradient(300deg, deepskyblue, darkviolet, blue);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
 }
 .buttons button span {
   z-index: 1;
   transition: all 0.3s ease-out;
 }
 .buttons button.cta-01 {
-  background-color: color-mix(in srgb, blue 60%, white 30%) !important;
+  background: linear-gradient(300deg, deepskyblue, darkviolet, blue);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
   color: white;
 }
 .buttons button:hover.cta-01 {
   color: color-mix(in srgb, blue 60%, white 30%);
-}
-.buttons button:hover.cta-02 {
-  color: white;
 }
 .buttons button:hover:after, .buttons button:hover:before {
   width: 200px;
@@ -105,5 +111,16 @@ form {
   }
   from {
     right: -500px;
+  }
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }/*# sourceMappingURL=main.css.map */
